@@ -1,1 +1,12 @@
 ---
+
+[leaf]
+leaf01 ansible_host=192.168.1.131
+leaf02 ansible_host=192.168.1.132
+leaf03 ansible_host=192.168.1.133
+leaf04 ansible_host=192.168.1.134
+
+
+#[spine]
+#spine01 ansible_host=192.168.1.171
+#spine02 ansible_host=192.168.1.172

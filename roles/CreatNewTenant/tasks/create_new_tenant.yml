@@ -1,0 +1,28 @@
+---
+
+- name: Define Providers
+  set_fact:
+  provider:
+  host: "{{ ansible_host }}"
+  username: "{{ creds['username'] }}"
+  password: "{{ creds['password'] }}"
+
+
+
+- name: Create the tenant VRF
+  nxos_vrf:
+   provider: "{{ provider }}"
+   vrf: "{{ tenant_name }}"
+   vni: "{{ tenant_layer3_vni}}"
+   route_distinguisher: auto
+   state: present
+
+- name: Enable EVPN address Famly for the tenant
+  nxos_vrf_af:
+   provider: "{{ provider }}"
+   vrf: "{{ tenant_name }}"
+   afi: ipv4
+   route_target_both_auto_evpn: True
+   state: present
+
+
