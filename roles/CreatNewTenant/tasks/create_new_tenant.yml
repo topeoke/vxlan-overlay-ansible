@@ -1,5 +1,4 @@
 ---
-
 - name: Define Providers
   set_fact:
   provider:
@@ -25,4 +24,17 @@
    route_target_both_auto_evpn: True
    state: present
 
+- name: Create internal control VLAN/SVI for the VRF
+  nxos_interface:
+   provider: "{{ provider }}"
+   interface_type: svi
+   mode: layer3
+   state: present
+
+
+- name: Configure internal control VLAN/SVI for the VRF
+  nxos_ip_interface:
+   provider: "{{ provider }}"
+   vrf: "{{ tenant_name }}"
+   state: present
 
