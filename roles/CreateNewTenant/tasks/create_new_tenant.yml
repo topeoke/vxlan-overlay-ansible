@@ -38,8 +38,7 @@
      afi: ipv4
      route_target_both_auto_evpn: True
      state: present
-    #with_items: "{{ domains }}"
-    when: "{{ item.domain }}" == "{{ domains.name}}"
+    when: "{{ domains.name }}" == "{{ item.domain}}"
 
     #when: domains == "{{ items.domain }}"
 
