@@ -1,4 +1,6 @@
 ---
 role: leaf
-domain: domain_even
+domain:
+ - domain_1
+ - domain_2
 

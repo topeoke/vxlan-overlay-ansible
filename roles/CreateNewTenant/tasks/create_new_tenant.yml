@@ -19,6 +19,7 @@
   when: domain == "{{ item.domain }}"
 
 - name: Enable EVPN address Famly for the tenant
+  with_items: "{{ tenants }}"
   nxos_vrf_af:
    provider: "{{ provider }}"
    vrf: "{{ item.tenant_name }}"
