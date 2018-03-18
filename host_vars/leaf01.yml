@@ -1,4 +1,5 @@
 ---
 role: leaf
-domain: domain_1
-
+domain:
+ - domain_1
+ - domain_2
