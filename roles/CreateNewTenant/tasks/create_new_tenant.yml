@@ -25,7 +25,7 @@
      vni: "{{ item.tenant_layer3_vni}}"
      rd: auto
      state: present
-    when: "{{ domains }}" == "{{ item.domain }}"
+    when: domains == "{{ item.domain }}"
 
   - name: Enable EVPN address Famly for the tenant
     with_items: "{{ tenants }}"

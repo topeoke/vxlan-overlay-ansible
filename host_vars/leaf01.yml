@@ -1,3 +1,5 @@
 ---
 role: leaf
-domain: [ domain_1, domain_2 ]
+domains:
+ - domain_1
+ - domain_2
