@@ -16,7 +16,7 @@
    vni: "{{ item.tenant_layer3_vni}}"
    route_distinguisher: auto
    state: present
-  when: "{{ item.domain }}" == "{{ domain }}"
+  when: domain == "{{ item.domain }}"
 
 - name: Enable EVPN address Famly for the tenant
   nxos_vrf_af:
@@ -25,7 +25,7 @@
    afi: ipv4
    route_target_both_auto_evpn: True
    state: present
-  when: "{{ item.domain }}" == "{{ domain }}"
+  when: domain == "{{ item.domain }}"
 
 - name: Create internal control VLAN/SVI for the VRF
   nxos_interface:
