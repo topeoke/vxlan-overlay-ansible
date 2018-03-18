@@ -2,7 +2,7 @@
 - block:
 
   - name: Retrieve Login Credentials
-     include_vars: /home/temi/EVE/VXLAN/ansible-code/secret.yaml
+    include_vars: /home/temi/EVE/VXLAN/ansible-code/secret.yaml
 
 
   - name: Define Providers
