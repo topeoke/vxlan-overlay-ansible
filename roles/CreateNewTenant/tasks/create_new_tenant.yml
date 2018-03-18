@@ -18,6 +18,9 @@
     with_items: "{{ tenants }}"
     nxos_vrf:
      #provider: "{{ provider }}"
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
      vrf: "{{ item.tenant_name }}"
      vni: "{{ item.tenant_layer3_vni}}"
      route_distinguisher: auto
