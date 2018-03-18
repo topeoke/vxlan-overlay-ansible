@@ -15,7 +15,7 @@ tenants:
    tenant_layer3_vni: 700002
    tenant_mcast_group: 225.7.0.2
    tenant_vlan_id: 101
-   doamin: domain_2
+   domain: domain_2
    nve_id: 2
 
 network_subnets:
