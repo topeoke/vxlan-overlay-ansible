@@ -38,7 +38,7 @@
      afi: ipv4
      route_target_both_auto_evpn: True
      state: present
-    when: "{{ domains.name }}"
+    when: role  == "leaf"
 
     #when: domains == "{{ items.domain }}"
 
