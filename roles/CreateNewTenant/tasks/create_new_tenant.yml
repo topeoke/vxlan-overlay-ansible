@@ -2,9 +2,9 @@
 - name: Define Providers
   set_fact:
   provider:
-  host: "{{ ansible_host }}"
-  username: "{{ creds['username'] }}"
-  password: "{{ creds['password'] }}"
+   host: "{{ ansible_host }}"
+   username: "{{ creds['username'] }}"
+   password: "{{ creds['password'] }}"
 
 
 
