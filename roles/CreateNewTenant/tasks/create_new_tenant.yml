@@ -39,7 +39,8 @@
      route_target_both_auto_evpn: True
      state: present
     with_items: "{{ domains }}"
-    when: "{{ item.domains }}" == "{{ item.domain }}"
+
+    #when: domains == "{{ items.domain }}"
 
 
 #- name: Create internal control VLAN/SVI for the VRF
