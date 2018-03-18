@@ -1,6 +1,6 @@
 ---
 role: leaf
 domains:
- - domain_1
- - domain_2
- - domain_3
+ - name: domain_1
+ - name: domain_2
+ - name: domain_3

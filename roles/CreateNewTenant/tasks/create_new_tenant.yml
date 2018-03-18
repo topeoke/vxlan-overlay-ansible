@@ -39,6 +39,7 @@
      route_target_both_auto_evpn: True
      state: present
     with_items: "{{ domains }}"
+    when: "{{ item.name }}"
 
     #when: domains == "{{ items.domain }}"
 
