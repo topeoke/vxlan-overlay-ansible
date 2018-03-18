@@ -28,17 +28,18 @@
    state: present
   when: domain == "{{ item.domain }}"
 
-- name: Create internal control VLAN/SVI for the VRF
-  nxos_interface:
-   provider: "{{ provider }}"
-   interface_type: svi
-   mode: layer3
-   state: present
+
+#- name: Create internal control VLAN/SVI for the VRF
+#  nxos_interface:
+#   provider: "{{ provider }}"
+#  interface_type: svi
+#   mode: layer3
+#   state: present
 
 
-- name: Configure internal control VLAN/SVI for the VRF
-  nxos_ip_interface:
-   provider: "{{ provider }}"
-   vrf: "{{ tenant_name }}"
-   state: present
+#- name: Configure internal control VLAN/SVI for the VRF
+#  nxos_ip_interface:
+#   provider: "{{ provider }}"
+#   vrf: "{{ tenant_name }}"
+#   state: present
 
