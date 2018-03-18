@@ -38,7 +38,8 @@
      afi: ipv4
      route_target_both_auto_evpn: True
      state: present
-    when: domain == "{{ item.domain }}"
+    with_items: "{{ domains }}"
+    when: domain == "{{ item.domains }}"
 
 
 #- name: Create internal control VLAN/SVI for the VRF
