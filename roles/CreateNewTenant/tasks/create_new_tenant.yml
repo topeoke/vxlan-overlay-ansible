@@ -23,14 +23,17 @@
      password: "{{ creds['password'] }}"
      vrf: "{{ item.tenant_name }}"
      vni: "{{ item.tenant_layer3_vni}}"
-     route_distinguisher: auto
+     rd: auto
      state: present
     when: domain == "{{ item.domain }}"
 
   - name: Enable EVPN address Famly for the tenant
     with_items: "{{ tenants }}"
     nxos_vrf_af:
-     provider: "{{ provider }}"
+     #provider: "{{ provider }}"
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
      vrf: "{{ item.tenant_name }}"
      afi: ipv4
      route_target_both_auto_evpn: True
