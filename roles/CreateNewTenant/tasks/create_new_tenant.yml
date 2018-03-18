@@ -16,7 +16,7 @@
    vni: "{{ item.tenant_layer3_vni}}"
    route_distinguisher: auto
    state: present
-  when: role == "leaf"
+  when: role == "{{ item.domain }}"
 
 - name: Enable EVPN address Famly for the tenant
   with_items: "{{ tenants }}"
