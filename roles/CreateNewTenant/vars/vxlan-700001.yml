@@ -3,7 +3,6 @@ tenant_name: vxlan-700001
 tenant_layer3_vni: 700001
 tenant_mcast_group: 225.7.0.1
 tenant_vlan_id: 101
-nve_id: 1
 
 network_subnets:
   - name:
@@ -11,6 +10,7 @@ network_subnets:
     subnet:
     vlan_id:
     layer2_vni:
+    nve_id: 1
 
 
 endpoint_details:
