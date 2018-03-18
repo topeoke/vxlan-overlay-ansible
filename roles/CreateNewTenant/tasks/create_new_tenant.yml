@@ -11,7 +11,8 @@
 - name: Create the tenant VRF
   nxos_vrf:
    provider: "{{ provider }}"
-   vrf: "{{ tenant_name }}"
+   with_items: "{{ tenants }}"
+   vrf: "{{ item.tenant_name }}"
    vni: "{{ tenant_layer3_vni}}"
    route_distinguisher: auto
    state: present
