@@ -84,5 +84,4 @@
      host_reachability: true
      source_interface: loopback0
      source_interface_hold_down_time: 30
-     shutdown: default
     when: role == "leaf"
