@@ -9,28 +9,28 @@ tenants:
    tenant_mcast_group: 225.7.0.1
    tenant_vlan_id: vlan101
    domain: domain_1
-   nve_id: 1
+   nve_id: nve1
 
  - tenant_name: vxlan-700002
    tenant_layer3_vni: 700002
    tenant_mcast_group: 225.7.0.2
    tenant_vlan_id: vlan102
    domain: domain_2
-   nve_id: 2
+   nve_id: nve2
 
  - tenant_name: vxlan-700003
    tenant_layer3_vni: 700003
    tenant_mcast_group: 225.7.0.3
    tenant_vlan_id: vlan103
    domain: domain_3
-   nve_id: 3
+   nve_id: nve3
 
  - tenant_name: vxlan-700004
    tenant_layer3_vni: 700004
    tenant_mcast_group: 225.7.0.4
    tenant_vlan_id: vlan104
    domain: domain_4
-   nve_id: 4
+   nve_id: nve4
 
 
 network_subnets:

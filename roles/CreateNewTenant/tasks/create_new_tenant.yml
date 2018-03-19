@@ -72,7 +72,7 @@
      password: "{{ creds['password'] }}"
      interface: "{{ item.nve_id }}"
      host_reachability: true
-     source_interface: Loopback0
+     source_interface: loopback0
      source_interface_hold_down_time: 30
      shutdown: false
     when: role == "leaf"
