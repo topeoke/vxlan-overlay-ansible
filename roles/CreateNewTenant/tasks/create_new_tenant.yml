@@ -71,7 +71,7 @@
      username: "{{ creds['username'] }}"
      password: "{{ creds['password'] }}"
      interface: "{{ item.nve_id }}"
-     host_reachability: true
+     host_reachability: default
      source_interface: Loopback0
      source_interface_hold_down_time: 30
      rd: auto
