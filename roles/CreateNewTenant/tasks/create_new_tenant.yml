@@ -43,7 +43,9 @@
   - name: Create internal control VLAN/SVI for the VRF
     with_items: "{{ tenants }}"
     nxos_interface:
-     provider: "{{ provider }}"
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
      interface: "{{ item.tenant_vlan_id }}"
      interface_type: svi
      mode: layer3
@@ -54,8 +56,26 @@
   - name: Configure internal control VLAN/SVI for the VRF
     with_items: "{{ tenants }}"
     nxos_ip_interface:
-     provider: "{{ provider }}"
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
      interface: "{{ item.tenant_vlan_id }}"
      vrf: "{{ item.tenant_name }}"
      state: present
+    when: role == "leaf"
+
+
+  - name: Configure VTEP Interfaces
+    with_items: "{{ tenants }}"
+    nxos_vxlan_vtep:
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
+     interface: "{{ item.nve_id }}"
+     vrf: "{{ item.tenant_name }}"
+     host_reachability: true
+     source_interface: Loopback0
+     source_interface_hold_down_time: 30
+     rd: auto
+     shutdown: false
     when: role == "leaf"
