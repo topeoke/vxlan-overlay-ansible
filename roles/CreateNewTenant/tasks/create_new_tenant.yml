@@ -52,9 +52,9 @@
     when: role == "leaf"
 
 
-  - name: Configure internal control VLAN/SVI for the VRF
+  - name: Configure VRF on SVI Interfaces
     with_items: "{{ tenants }}"
-    nxos_ip_interface:
+    nxos_vrf_interface:
      host: "{{ ansible_host }}"
      username: "{{ creds['username'] }}"
      password: "{{ creds['password'] }}"
