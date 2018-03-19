@@ -1,0 +1,6 @@
+---
+- name: Testing the new role file
+  hosts: leaf01
+  connection: local
+  roles:
+   - CreateNewTenant
