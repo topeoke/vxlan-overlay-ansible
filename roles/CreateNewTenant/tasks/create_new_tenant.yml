@@ -86,7 +86,7 @@
     when: role == "leaf"
 
 
- - name: Configure Layer 3 VNI on VTEP Interfaces
+  - name: Configure Layer 3 VNI on VTEP Interfaces
     with_items: "{{ tenants }}"
     nxos_vxlan_vtep_vni:
      host: "{{ ansible_host }}"
