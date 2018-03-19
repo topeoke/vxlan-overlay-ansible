@@ -63,6 +63,17 @@
      state: present
     when: role == "leaf"
 
+  - name: Create VTEP Interfaces
+    with_items: "{{ tenants }}"
+    nxos_interface:
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
+     interface: "{{ item.nve_id }}"
+     mode: layer3
+     state: present
+    when: role == "leaf"
+
 
   - name: Configure VTEP Interfaces
     with_items: "{{ tenants }}"
