@@ -40,20 +40,21 @@
      state: present
     when: role  == "leaf"
 
-    #when: domains == "{{ items.domain }}"
+  - name: Create internal control VLAN/SVI for the VRF
+    with_item: "{{ tenants }}"
+    nxos_interface:
+     provider: "{{ provider }}"
+     interface: "{{ item.tenant_vlan_id }}"
+     interface_type: svi
+     mode: layer3
+     state: present
+    when: role == "leaf"
 
 
-#- name: Create internal control VLAN/SVI for the VRF
-#  nxos_interface:
-#   provider: "{{ provider }}"
-#  interface_type: svi
-#   mode: layer3
-#   state: present
-
-
-#- name: Configure internal control VLAN/SVI for the VRF
-#  nxos_ip_interface:
-#   provider: "{{ provider }}"
-#   vrf: "{{ tenant_name }}"
-#   state: present
-
+  - name: Configure internal control VLAN/SVI for the VRF
+    with_item: "{{ tenants }}"
+    nxos_ip_interface:
+     provider: "{{ provider }}"
+     vrf: "{{ tenant_name }}"
+     state: present
+    when: role == "leaf"
