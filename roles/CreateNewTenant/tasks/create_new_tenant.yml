@@ -70,7 +70,6 @@
      username: "{{ creds['username'] }}"
      password: "{{ creds['password'] }}"
      interface: "{{ item.nve_id }}"
-     mode: layer3
      state: present
     when: role == "leaf"
 
