@@ -55,6 +55,7 @@
     with_item: "{{ tenants }}"
     nxos_ip_interface:
      provider: "{{ provider }}"
-     vrf: "{{ tenant_name }}"
+     interface: "{{ item.tenant_vlan_id }}"
+     vrf: "{{ item.tenant_name }}"
      state: present
     when: role == "leaf"
