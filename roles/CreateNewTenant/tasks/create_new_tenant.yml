@@ -47,7 +47,6 @@
      username: "{{ creds['username'] }}"
      password: "{{ creds['password'] }}"
      interface: "{{ item.tenant_vlan_id }}"
-     #interface_type: svi
      mode: layer3
      state: present
     when: role == "leaf"
