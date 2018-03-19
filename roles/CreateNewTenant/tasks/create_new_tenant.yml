@@ -41,7 +41,7 @@
     when: role  == "leaf"
 
   - name: Create internal control VLAN/SVI for the VRF
-    with_item: "{{ tenants }}"
+    with_items: "{{ tenants }}"
     nxos_interface:
      provider: "{{ provider }}"
      interface: "{{ item.tenant_vlan_id }}"
@@ -52,7 +52,7 @@
 
 
   - name: Configure internal control VLAN/SVI for the VRF
-    with_item: "{{ tenants }}"
+    with_items: "{{ tenants }}"
     nxos_ip_interface:
      provider: "{{ provider }}"
      interface: "{{ item.tenant_vlan_id }}"
