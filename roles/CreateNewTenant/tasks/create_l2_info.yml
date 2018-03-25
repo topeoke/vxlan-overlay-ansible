@@ -24,7 +24,7 @@
      mode: layer3
      state: present
     with_item: "{{ item.network_subnets.leaf_switches}}"
-    when: item == "{{ ansible_host }}"
+    when: item == "{{ hostname }}"
 
 
   - name: Configure VRF on SVI Interfaces
