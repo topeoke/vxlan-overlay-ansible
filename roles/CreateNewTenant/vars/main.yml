@@ -36,6 +36,7 @@ tenants:
    tenant_vlan_id: vlan102
    domain: domain_2
    nve_id: nve2
+   network_subnets:
 
  - tenant_name: vxlan-700003
    tenant_layer3_vni: 700003
