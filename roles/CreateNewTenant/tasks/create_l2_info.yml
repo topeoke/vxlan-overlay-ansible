@@ -24,7 +24,7 @@
      mode: layer3
      state: present
     with_items: "{{ item.network_subnets.leaf_switches}}"
-    when: hostname == item
+    when: hostname == "{{ item }}"
 
 
   - name: Configure VRF on SVI Interfaces
