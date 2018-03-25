@@ -20,7 +20,7 @@
      username: "{{ creds['username'] }}"
      password: "{{ creds['password'] }}"
      interface: "{{ item.1.vlan_id }}"
-     interface_type: svi
+     #interface_type: svi
      mode: layer3
      state: present
     with_subelements:
