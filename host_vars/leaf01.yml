@@ -1,5 +1,6 @@
 ---
 role: leaf
+hostname: leaf01
 domains:
  - name: domain_1
  - name: domain_2
