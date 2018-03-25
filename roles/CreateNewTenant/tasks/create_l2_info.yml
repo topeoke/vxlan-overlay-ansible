@@ -24,9 +24,9 @@
      mode: layer3
      state: present
     with_subelements:
-     #- "{{ tenants }}"
+     - "{{ tenants }}"
      - network_subnets
-     - leaf_switches
+     - " {{ leaf_switches }}"
     when: hostname == "{{ item.2 }}"
 
 
