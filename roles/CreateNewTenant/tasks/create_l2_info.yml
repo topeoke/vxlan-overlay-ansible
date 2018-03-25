@@ -25,9 +25,9 @@
      state: present
     with_subelements:
      - "{{ tenants }}"
-     - "{{ network_subnets }}"
-     - leaf_switches
-    when: hostname == "{{ item.2 }}"
+     - network_subnets
+     #- leaf_switches
+    when: hostname == "{{ item.1.leaf_switches }}"
 
 
   - name: Configure VRF on SVI Interfaces
