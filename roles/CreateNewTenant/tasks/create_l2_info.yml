@@ -27,7 +27,7 @@
      - "{{ tenants }}"
      - network_subnets
      #- leaf_switches
-    when: hostname == "{{ item.1.leaf_switches }}"
+    when: item.1.leaf_switches == "{{ ansible_host }}"
 
 
   - name: Configure VRF on SVI Interfaces
