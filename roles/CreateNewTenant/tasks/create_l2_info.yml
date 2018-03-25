@@ -14,7 +14,7 @@
 
 
   - name: Create Workload  VLAN/SVI for the VRF
-    with_items: "{{ tenants }}"
+    with_nested: "{{ tenants }}"
     nxos_interface:
      host: "{{ ansible_host }}"
      username: "{{ creds['username'] }}"
