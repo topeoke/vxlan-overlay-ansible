@@ -23,7 +23,7 @@
      interface_type: svi
      mode: layer3
      state: present
-    with_item: "{{ item.network_subnets.leaf_switches}}"
+    with_items: "{{ item.network_subnets.leaf_switches}}"
     when: hostname == item
 
 
