@@ -14,17 +14,17 @@
 
 
   - name: Create Workload  VLAN/SVI for the VRF
-    with_nested: "{{ tenants }}"
+    with_subelements: "{{ network_switches }}"
     nxos_interface:
      host: "{{ ansible_host }}"
      username: "{{ creds['username'] }}"
      password: "{{ creds['password'] }}"
-     interface: "{{ item.0.network_subnets.vlan_id }}"
+     interface: "{{ item.0.vlan_id }}"
      interface_type: svi
      mode: layer3
      state: present
-    with_nested: "{{ item.1.leaf_switches}}"
-    when: hostname == "{{ item }}"
+    with_subelements: "{{ leaf_switches}}"
+    when: hostname == "{{ item.1 }}"
 
 
   - name: Configure VRF on SVI Interfaces
