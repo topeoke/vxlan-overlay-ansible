@@ -22,13 +22,12 @@
      interface: "{{ item.1.name }}"
      #interface_type: svi
      mode: layer3
-     switch: "{{ item.1.leaf_switches }}"
      state: present
     with_subelements:
      - "{{ tenants }}"
      - network_subnets
      #- leaf_switches
-    when: hostname == "{{ item.1.leaf_switches }}"
+    when: hostname == "leaf01"
 
 
   - name: Configure VRF on SVI Interfaces
