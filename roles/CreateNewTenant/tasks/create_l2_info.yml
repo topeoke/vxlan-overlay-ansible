@@ -25,7 +25,7 @@
      state: present
     with_subelements:
      - "{{ tenants }}"
-     - network_subnets.leaf_switches
+     - "{{network_subnets.leaf_switches}}"
      #- leaf_switches
     when: hostname == "{{ item.1 }}"
 
