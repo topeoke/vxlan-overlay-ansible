@@ -37,6 +37,13 @@ tenants:
    domain: domain_2
    nve_id: nve2
    network_subnets:
+    - name:
+      network:
+      subnet:
+      gateway_address:
+      vlan_id:
+      layer2_vni:
+      leaf_switches:
 
  - tenant_name: vxlan-700003
    tenant_layer3_vni: 700003
