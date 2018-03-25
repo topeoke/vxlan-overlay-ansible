@@ -19,11 +19,11 @@
      host: "{{ ansible_host }}"
      username: "{{ creds['username'] }}"
      password: "{{ creds['password'] }}"
-     interface: "{{ item.network_subnets.vlan_id }}"
+     interface: "{{ item.0.network_subnets.vlan_id }}"
      interface_type: svi
      mode: layer3
      state: present
-    with_items: "{{ tenants.network_subnets.leaf_switches}}"
+    with_nested: "{{ item.1.leaf_switches}}"
     when: hostname == "{{ item }}"
 
 
