@@ -17,6 +17,8 @@ tenants:
       gateway_address: 192.168.0.1
       vlan_id: 1010
       layer2_vni: 7000010
+      leaf_switches:
+       - leaf01
 
     - name: vlan1011
       network: 192.168.1.0
@@ -25,7 +27,7 @@ tenants:
       vlan_id: 1011
       layer2_vni: 7000011
       leaf_switches:
-       - leaf01
+       - leaf02
 
 
  - tenant_name: vxlan-700002
