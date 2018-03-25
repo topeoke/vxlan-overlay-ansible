@@ -19,14 +19,15 @@
      host: "{{ ansible_host }}"
      username: "{{ creds['username'] }}"
      password: "{{ creds['password'] }}"
-     interface: "{{ item.0.vlan_id }}"
+     interface: "{{ item.1.vlan_id }}"
      interface_type: svi
      mode: layer3
      state: present
     with_subelements:
+     - "{{ tenants }}"
      - "{{ network_switches }}"
      -  "{{ leaf_switches}}"
-    when: hostname == "{{ item.1 }}"
+    when: hostname == "{{ item.2 }}"
 
 
   - name: Configure VRF on SVI Interfaces
