@@ -1,0 +1,73 @@
+---
+- block:
+
+  - name: Retrieve Login Credentials
+    include_vars: /home/temi/EVE/VXLAN/ansible-code/secret.yaml
+
+
+  - name: Define Providers
+    set_fact:
+    provider:
+    host: "{{ ansible_host }}"
+    username: "{{ creds['username'] }}"
+    password: "{{ creds['password'] }}"
+
+
+  - name: Create Workload  VLAN/SVI for the VRF
+    with_items: "{{ tenants }}"
+    nxos_interface:
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
+     interface: "{{ item.network_subnets.vlan_id }}"
+     interface_type: svi
+     mode: layer3
+     state: present
+    with_item: "{{ item.leaf_switches.}}"
+    when: "{{ ansible_host }}" == "{{ item }} "
+
+
+  - name: Configure VRF on SVI Interfaces
+    with_items: "{{ tenants }}"
+    nxos_vrf_interface:
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
+     interface: "{{ item.tenant_vlan_id }}"
+     vrf: "{{ item.tenant_name }}"
+     state: present
+    when: role == "xxxxx"
+
+  - name: Create VTEP Interfaces
+    nxos_interface:
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
+     interface: nve1
+     state: present
+    when: role == "xxxxx"
+
+
+  - name: Configure VTEP Interfaces
+    nxos_vxlan_vtep:
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
+     interface: nve1
+     host_reachability: true
+     source_interface: loopback0
+     source_interface_hold_down_time: 30
+     shutdown: true
+    when: role == "xxxx"
+
+
+  - name: Configure Layer 3 VNI on VTEP Interfaces
+    with_items: "{{ tenants }}"
+    nxos_vxlan_vtep_vni:
+     host: "{{ ansible_host }}"
+     username: "{{ creds['username'] }}"
+     password: "{{ creds['password'] }}"
+     interface: nve1
+     vni: "{{ item.tenant_layer3_vni }}"
+     assoc_vrf: true
+    when: role == "xxxx"

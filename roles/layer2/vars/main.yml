@@ -1,0 +1,22 @@
+---
+creds:
+  username: admin
+  password: admin
+
+
+network_subnets:
+  - name: vlan10
+    network: 10.10.10.0
+    subnet: 24
+    vlan_id: 10
+    layer2_vni: 701
+    tenant: vxlan-700001
+
+
+endpoint_details:
+  - attached_host:
+    attached_switch:
+    switch_interface:
+    mode:
+    allocated_vlan:
+

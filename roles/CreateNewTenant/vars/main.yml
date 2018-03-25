@@ -10,6 +10,23 @@ tenants:
    tenant_vlan_id: vlan101
    domain: domain_1
    nve_id: nve1
+   network_subnets:
+    - name: vlan1010
+      network: 192.168.0.0
+      subnet: 24
+      gateway_address: 192.168.0.1
+      vlan_id: 1010
+      layer2_vni: 7000010
+
+    - name: vlan1011
+      network: 192.168.1.0
+      subnet: 24
+      gateway_address: 192.168.1.1
+      vlan_id: 1011
+      layer2_vni: 7000011
+   leaf_switches:
+     - leaf01
+
 
  - tenant_name: vxlan-700002
    tenant_layer3_vni: 700002
@@ -24,6 +41,16 @@ tenants:
    tenant_vlan_id: vlan103
    domain: domain_3
    nve_id: nve3
+   network_subnets:
+    - name: vlan1031
+      network: 192.168.30.0
+      subnet: 24
+      gateway_address: 192.168.30.1
+      vlan_id: 1031
+      layer2_vni: 7000030
+   leaf_switches:
+     - leaf01
+     - leaf03
 
  - tenant_name: vxlan-700004
    tenant_layer3_vni: 700004
@@ -31,20 +58,14 @@ tenants:
    tenant_vlan_id: vlan104
    domain: domain_4
    nve_id: nve4
-
-
-network_subnets:
-  - name:
-    network:
-    subnet:
-    vlan_id:
-    layer2_vni:
-
-
-endpoint_details:
-  - attached_host:
-    attached_switch:
-    switch_interface:
-    mode:
-    allocated_vlan:
+   network_subnets:
+    - name: vlan1041
+      network: 192.168.40.0
+      subnet: 24
+      gateway_address: 192.168.40.1
+      vlan_id: 1041
+      layer2_vni: 7000040
+   leaf_switches:
+     - leaf01
+     - leaf02
 
