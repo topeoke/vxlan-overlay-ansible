@@ -27,7 +27,7 @@
      - "{{ tenants }}"
      - network_subnets
      #- leaf_switches
-    when: hostname == "leaf01"
+    when: role == leaf
 
 
   - name: Configure VRF on SVI Interfaces
